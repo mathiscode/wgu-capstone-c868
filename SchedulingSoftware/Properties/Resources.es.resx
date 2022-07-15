@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Active" xml:space="preserve">
+    <value>Activo</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Dirección</value>
+  </data>
+  <data name="AddressLine2" xml:space="preserve">
+    <value>Línea de dirección 2</value>
+  </data>
+  <data name="AllAppointments" xml:space="preserve">
+    <value>Todas las Citas</value>
+  </data>
+  <data name="Appointment" xml:space="preserve">
+    <value>Cita</value>
+  </data>
+  <data name="AppointmentID" xml:space="preserve">
+    <value>ID de cita</value>
+  </data>
+  <data name="AppointmentOutsideBusinessHours" xml:space="preserve">
+    <value>La cita no puede ser fuera del horario comercial (9 a. M. A 5 p. M.)</value>
+  </data>
+  <data name="Appointments" xml:space="preserve">
+    <value>Citas</value>
+  </data>
+  <data name="AppointmentTypes" xml:space="preserve">
+    <value>Tipas de Citas</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>Ciudad</value>
+  </data>
+  <data name="ConfirmAction" xml:space="preserve">
+    <value>Confirmar acción</value>
+  </data>
+  <data name="ConfirmDeleteAppointment" xml:space="preserve">
+    <value>¿Está seguro de que desea eliminar esta cita?</value>
+  </data>
+  <data name="ConfirmDeleteCustomer" xml:space="preserve">
+    <value>¿Está seguro de que desea eliminar este cliente?</value>
+  </data>
+  <data name="ConsultantHours" xml:space="preserve">
+    <value>Horas de Consultor</value>
+  </data>
+  <data name="ConsultantSchedules" xml:space="preserve">
+    <value>Horarios del Consultor</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contacto</value>
+  </data>
+  <data name="Count" xml:space="preserve">
+    <value>Contar</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>País</value>
+  </data>
+  <data name="CreateAppointment" xml:space="preserve">
+    <value>Crear Cita</value>
+  </data>
+  <data name="CreateCustomer" xml:space="preserve">
+    <value>Crear Cliente</value>
+  </data>
+  <data name="Customer" xml:space="preserve">
+    <value>Cliente</value>
+  </data>
+  <data name="CustomerActive" xml:space="preserve">
+    <value>Cliente activo</value>
+  </data>
+  <data name="CustomerID" xml:space="preserve">
+    <value>ID de Cliente</value>
+  </data>
+  <data name="CustomerName" xml:space="preserve">
+    <value>Nombre de Cliente</value>
+  </data>
+  <data name="Customers" xml:space="preserve">
+    <value>Clientes</value>
+  </data>
+  <data name="DatabaseConnectionFailed" xml:space="preserve">
+    <value>No se pudo conectar a la base de datos</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="DeleteAppointment" xml:space="preserve">
+    <value>Eliminar Cita</value>
+  </data>
+  <data name="DeleteCustomer" xml:space="preserve">
+    <value>Eliminar Cliente</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="EditAppointment" xml:space="preserve">
+    <value>Editar Cita</value>
+  </data>
+  <data name="EditCustomer" xml:space="preserve">
+    <value>Editar Cliente</value>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>Fin</value>
+  </data>
+  <data name="ErrorInvalidAddress" xml:space="preserve">
+    <value>Debes especificar una dirección</value>
+  </data>
+  <data name="ErrorInvalidCity" xml:space="preserve">
+    <value>Debes especificar una ciudad</value>
+  </data>
+  <data name="ErrorInvalidCountry" xml:space="preserve">
+    <value>Debes especificar un país</value>
+  </data>
+  <data name="ErrorInvalidName" xml:space="preserve">
+    <value>Debes especificar un nombre</value>
+  </data>
+  <data name="ErrorInvalidPhone" xml:space="preserve">
+    <value>Debes especificar un número de teléfono</value>
+  </data>
+  <data name="ErrorInvalidPostalCode" xml:space="preserve">
+    <value>Debes especificar un código postal</value>
+  </data>
+  <data name="FutureAppointments" xml:space="preserve">
+    <value>Citas Futuras</value>
+  </data>
+  <data name="InvalidEndDate" xml:space="preserve">
+    <value>Fecha de finalización no válida</value>
+  </data>
+  <data name="InvalidEndTime" xml:space="preserve">
+    <value>Hora de finalización no válida</value>
+  </data>
+  <data name="InvalidStartDate" xml:space="preserve">
+    <value>Fecha de inicio no válida</value>
+  </data>
+  <data name="InvalidStartTime" xml:space="preserve">
+    <value>Hora de inicio no válida</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Localización</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Acceso</value>
+  </data>
+  <data name="LoginIncorrect" xml:space="preserve">
+    <value>Nombre de usuario o contraseña incorrecta</value>
+  </data>
+  <data name="LoginSubtitle" xml:space="preserve">
+    <value>Por favor inicie sesión para continuar</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Mes</value>
+  </data>
+  <data name="MonthlyView" xml:space="preserve">
+    <value>Vista Mensual</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="NewAppointment" xml:space="preserve">
+    <value>Nueva Cita</value>
+  </data>
+  <data name="NewCustomer" xml:space="preserve">
+    <value>Nueva Cliente</value>
+  </data>
+  <data name="OverlappingAppointment" xml:space="preserve">
+    <value>Ya tienes una cita dentro de este plazo</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Teléfono</value>
+  </data>
+  <data name="PostalCode" xml:space="preserve">
+    <value>Código Postal</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Impresión</value>
+  </data>
+  <data name="Report" xml:space="preserve">
+    <value>Informe</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>Informes</value>
+  </data>
+  <data name="SelectAppointment" xml:space="preserve">
+    <value>Por favor seleccione una cita</value>
+  </data>
+  <data name="SelectCustomer" xml:space="preserve">
+    <value>Por favor seleccione un cliente</value>
+  </data>
+  <data name="SelectDate" xml:space="preserve">
+    <value>Seleccione fecha</value>
+  </data>
+  <data name="SpecifyAppointmentType" xml:space="preserve">
+    <value>Por favor especifique el tipo de cita</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Comienzo</value>
+  </data>
+  <data name="StartingAt" xml:space="preserve">
+    <value>a partir de</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="UpcomingAppointment" xml:space="preserve">
+    <value>Próxima Cita</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Nombre de usuario</value>
+  </data>
+  <data name="WeeklyView" xml:space="preserve">
+    <value>Vista Semanal</value>
+  </data>
+  <data name="WindowTitle" xml:space="preserve">
+    <value>Programador Simple</value>
+  </data>
+  <data name="YouHaveUpcomingAppointment" xml:space="preserve">
+    <value>Tienes una cita próxima con</value>
+  </data>
+</root>

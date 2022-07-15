@@ -1,0 +1,92 @@
+﻿<Window x:Class="SchedulingSoftware.EditCustomer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SchedulingSoftware"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        lex:LocalizeDictionary.DesignCulture="en"
+        lex:ResxLocalizationProvider.DefaultAssembly="SchedulingSoftware"
+        lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+        mc:Ignorable="d"
+        Title="{lex:Loc EditCustomer}" Height="456.131" Width="800"
+        Icon="icon.png" Background="#FF121212">
+    <Grid>
+        <StackPanel Margin="10,0">
+            <GroupBox Header="{lex:Loc EditCustomer}" Foreground="White" FontSize="18" Height="346">
+                <StackPanel>
+                    <Label Content="{lex:Loc Name}" Foreground="AntiqueWhite" />
+                    <TextBox x:Name="CustomerName" Text="{Binding name}" MaxLength="45" />
+
+                    <Label Content="{lex:Loc Address}" Foreground="AntiqueWhite" />
+                    <TextBox x:Name="CustomerAddressLine1" Text="{Binding address}" MaxLength="50" />
+
+                    <Label Content="{lex:Loc AddressLine2}" Foreground="AntiqueWhite" />
+                    <TextBox x:Name="CustomerAddressLine2" Text="{Binding address2}" MaxLength="50" />
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Grid.Column="0" Grid.Row="0" Margin="0,0,10,0">
+                            <Label Content="{lex:Loc City}" Foreground="AntiqueWhite" />
+                            <TextBox x:Name="CustomerCity" Text="{Binding city}" MaxLength="50" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Grid.Row="0" Margin="10,0,0,0">
+                            <Label Content="{lex:Loc PostalCode}" Foreground="AntiqueWhite" />
+                            <TextBox x:Name="CustomerPostalCode" Text="{Binding postalCode}" MaxLength="10" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="0" Grid.Row="1" Margin="0,0,10,0">
+                            <Label Content="{lex:Loc Country}" Foreground="AntiqueWhite" />
+                            <TextBox x:Name="CustomerCountry" Text="{Binding country}" MaxLength="50" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Grid.Row="1" Margin="10,0,0,0">
+                            <Label Content="{lex:Loc Phone}" Foreground="AntiqueWhite" />
+                            <TextBox x:Name="CustomerPhone" Text="{Binding phone}" MaxLength="20" />
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </GroupBox>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="37*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <CheckBox x:Name="CustomerActive" IsChecked="{Binding active}" Grid.Column="0" Margin="0,17,0,-21" Foreground="White" FontSize="12">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2.8" ScaleY="2.8" />
+                    </CheckBox.LayoutTransform>
+
+                    <TextBlock Text="{lex:Loc CustomerActive}" />
+                </CheckBox>
+
+                <Button x:Name="EditCustomerButton" Content="{lex:Loc EditCustomer}" Grid.Column="1" Height="41" FontSize="22" FontWeight="Bold" Click="EditCustomerButton_Click" Margin="5,18,0,3.5" Grid.RowSpan="2">
+                    <Button.Effect>
+                        <DropShadowEffect Color="#FFCBCBCB"/>
+                    </Button.Effect>
+
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5" />
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>

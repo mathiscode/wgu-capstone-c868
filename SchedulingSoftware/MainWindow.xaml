@@ -1,0 +1,250 @@
+﻿<Window x:Class="SchedulingSoftware.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        lex:LocalizeDictionary.DesignCulture="en"
+        lex:ResxLocalizationProvider.DefaultAssembly="SchedulingSoftware"
+        lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+        xmlns:local="clr-namespace:SchedulingSoftware"
+        mc:Ignorable="d"
+        Title="{lex:Loc WindowTitle}"
+        Width="800" Height="600" MinWidth="800" MinHeight="600"
+        Icon="icon.png" Background="#FF121212">
+
+    <Grid>
+        <Label Foreground="White" Content="{lex:Loc WindowTitle}" HorizontalContentAlignment="Center" FontSize="16" FontWeight="Bold" />
+
+        <TabControl x:Name="TabControl" HorizontalAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10,50,10,10">
+            <TabItem Header="{lex:Loc Appointments}">
+                <Grid Background="#FF121212">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45" />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="15" HorizontalAlignment="Center">
+                        <RadioButton x:Name="AllAppointmentsView" Content="{lex:Loc AllAppointments}" Foreground="White" Margin="0,0,75,0" IsChecked="True" Click="AllAppointmentsView_Click" />
+                        <RadioButton x:Name="FutureAppointmentsView" Content="{lex:Loc FutureAppointments}" Foreground="White" Margin="0,0,75,0" Click="FutureAppointmentsView_Click" />
+                        <RadioButton x:Name="WeeklyView" Content="{lex:Loc WeeklyView}" Foreground="White" Margin="0,0,75,0" Click="WeeklyView_Click" />
+                        <RadioButton x:Name="MonthlyView" Content="{lex:Loc MonthlyView}" Foreground="White" Click="MonthlyView_Click" />
+                    </StackPanel>
+
+                    <DataGrid
+                        x:Name="AppointmentDataGrid"
+                        Grid.Row="1"
+                        AutoGenerateColumns="False"
+                        Background="#FF121212"
+                        RowBackground="#FFe0e0e0"
+                        AlternatingRowBackground="#FFc0c0c0"
+                        SelectionMode="Single"
+                        SelectionChanged="AppointmentDataGrid_SelectionChanged"
+                        Loaded="AppointmentDataGrid_Loaded"
+                        IsReadOnly="True" Margin="0,0,0,0"
+                    >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="{lex:Loc AppointmentID}" Binding="{Binding id}"/>
+                            <DataGridTextColumn Header="{lex:Loc CustomerID}" Binding="{Binding customerId}"/>
+                            <DataGridTextColumn Header="{lex:Loc CustomerName}" Binding="{Binding customerName}"/>
+                            <DataGridTextColumn Header="{lex:Loc Title}" Binding="{Binding title}" />
+                            <DataGridTextColumn Header="{lex:Loc Type}" Binding="{Binding type}" />
+                            <DataGridTextColumn Header="{lex:Loc Start}" Binding="{Binding start}" SortDirection="Ascending" />
+                            <DataGridTextColumn Header="{lex:Loc End}" Binding="{Binding end}" />
+                            <DataGridTextColumn Header="{lex:Loc Description}" Binding="{Binding description}" />
+                            <DataGridTextColumn Header="{lex:Loc Location}" Binding="{Binding location}" />
+                            <DataGridTextColumn Header="{lex:Loc Contact}" Binding="{Binding contact}" />
+                            <DataGridHyperlinkColumn Header="URL" Binding="{Binding url}" Width="*">
+                                <DataGridHyperlinkColumn.ElementStyle>
+                                    <Style>
+                                        <EventSetter Event="Hyperlink.Click" Handler="WebPageClick"/>
+                                    </Style>
+                                </DataGridHyperlinkColumn.ElementStyle>
+                            </DataGridHyperlinkColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Grid Grid.Row="2" Margin="0,75,0,0" VerticalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Button x:Name="NewAppointmentButton" MaxHeight="75" HorizontalContentAlignment="Center" Grid.Column="0" Content="{lex:Loc NewAppointment}" FontSize="16" FontFamily="Segoe UI Black" Click="NewAppointmentButton_Click" Margin="50,0,10,0">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FFCBCBCB"/>
+                            </Button.Effect>
+
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5" />
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                        <Button x:Name="EditAppointmentButton" MaxHeight="75" HorizontalContentAlignment="Center" Grid.Column="1" Content="{lex:Loc EditAppointment}" FontSize="16" FontFamily="Segoe UI Black" Click="EditAppointmentButton_Click" Margin="0,0,10,0">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FFCBCBCB"/>
+                            </Button.Effect>
+
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5" />
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                        <Button x:Name="DeleteAppointmentButton" MaxHeight="75" HorizontalContentAlignment="Center" Grid.Column="2" Content="{lex:Loc DeleteAppointment}" FontSize="16" FontFamily="Segoe UI Black" Click="DeleteAppointmentButton_Click" Margin="0,0,50,0">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FFCBCBCB"/>
+                            </Button.Effect>
+
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5" />
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="{lex:Loc Customers}">
+                <Grid Background="#FF121212">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45" />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <DockPanel>
+                        <TextBox x:Name="CustomerSearchQueryTextbox" Margin="10" Text="{Binding Path=CustomerSearchQuery, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextChanged="CustomerSearchQueryTextbox_TextChanged" />
+                    </DockPanel>
+
+                    <DataGrid
+                        x:Name="CustomerDataGrid"
+                        Grid.Row="1"
+                        AutoGenerateColumns="False"
+                        Background="#FF121212"
+                        RowBackground="#FFe0e0e0"
+                        AlternatingRowBackground="#FFc0c0c0"
+                        SelectionMode="Single"
+                        SelectionChanged="CustomerDataGrid_SelectionChanged"
+                        Loaded="CustomerDataGrid_Loaded"
+                        IsReadOnly="True" Margin="0,0,0,0"
+                    >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn IsReadOnly="True" Header="{lex:Loc CustomerID}" Binding="{Binding id}" />
+                            <DataGridCheckBoxColumn Header="{lex:Loc Active}" Binding="{Binding active}" />
+                            <DataGridTextColumn Header="{lex:Loc Name}" Binding="{Binding name}" SortDirection="Ascending" />
+                            <DataGridTextColumn Header="{lex:Loc Phone}" Binding="{Binding phone}" />
+                            <DataGridTextColumn Header="{lex:Loc Address}" Binding="{Binding address}" />
+                            <DataGridTextColumn Header="{lex:Loc AddressLine2}" Binding="{Binding address2}" />
+                            <DataGridTextColumn Header="{lex:Loc City}" Binding="{Binding city}" />
+                            <DataGridTextColumn Header="{lex:Loc PostalCode}" Binding="{Binding postalCode}" />
+                            <DataGridTextColumn Header="{lex:Loc Country}" Binding="{Binding country}" Width="*" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Grid Grid.Row="2" Margin="0,75,0,0" VerticalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Button x:Name="NewCustomerButton" Content="{lex:Loc NewCustomer}" MaxHeight="75" HorizontalContentAlignment="Center" Grid.Column="0" FontSize="16" FontFamily="Segoe UI Black" Click="NewCustomerButton_Click" Margin="50,0,10,0">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FFCBCBCB"/>
+                            </Button.Effect>
+
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5" />
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                        <Button x:Name="EditCustomerButton" Content="{lex:Loc EditCustomer}" MaxHeight="75" HorizontalContentAlignment="Center" Grid.Column="1" FontSize="16" FontFamily="Segoe UI Black" Click="EditCustomerButton_Click" Margin="0,0,10,0">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FFCBCBCB"/>
+                            </Button.Effect>
+
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5" />
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                        <Button x:Name="DeleteCustomerButton" Content="{lex:Loc DeleteCustomer}" MaxHeight="75" HorizontalContentAlignment="Center" Grid.Column="2" FontSize="16" FontFamily="Segoe UI Black" Click="DeleteCustomerButton_Click" Margin="0,0,50,0">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FFCBCBCB"/>
+                            </Button.Effect>
+
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5" />
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="{lex:Loc Reports}">
+                <Grid Background="#FF121212">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Button x:Name="ReportAppointmentTypesButton" Height="75" Grid.Column="0" VerticalAlignment="Top" Content="{lex:Loc AppointmentTypes}" FontSize="16" FontFamily="Segoe UI Black" Margin="50,50,50,25" Click="ReportAppointmentTypesButton_Click">
+                        <Button.Effect>
+                            <DropShadowEffect Color="#FFCBCBCB"/>
+                        </Button.Effect>
+
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5" />
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+
+                    <Button x:Name="ReportConsultantSchedulesButton" Height="75" Grid.Column="1" VerticalAlignment="Top" Content="{lex:Loc ConsultantSchedules}" FontSize="16" FontFamily="Segoe UI Black" Margin="50,50,50,25" Click="ReportConsultantSchedulesButton_Click">
+                        <Button.Effect>
+                            <DropShadowEffect Color="#FFCBCBCB"/>
+                        </Button.Effect>
+
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5" />
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+
+                    <Button x:Name="ReportConsultantHoursButton" Height="75" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Top" Content="{lex:Loc ConsultantHours}" FontSize="16" FontFamily="Segoe UI Black" Margin="50,50,50,25" Click="ReportConsultantHoursButton_Click">
+                        <Button.Effect>
+                            <DropShadowEffect Color="#FFCBCBCB"/>
+                        </Button.Effect>
+
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5" />
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

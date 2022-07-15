@@ -1,0 +1,187 @@
+﻿<Window x:Class="SchedulingSoftware.NewAppointment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SchedulingSoftware"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        lex:LocalizeDictionary.DesignCulture="en"
+        lex:ResxLocalizationProvider.DefaultAssembly="SchedulingSoftware"
+        lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+        mc:Ignorable="d"
+        Title="{lex:Loc NewAppointment}" Height="617.131" Width="800"
+        Icon="icon.png" Background="#FF121212">
+
+    <Window.Resources>
+        <Style TargetType="DatePickerTextBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DatePickerTextBox}">
+                        <Grid>
+                            <Grid.Resources>
+                                <SolidColorBrush x:Key="WatermarkBrush" Color="#FFAAAAAA"/>
+                            </Grid.Resources>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0"/>
+                                        <VisualTransition GeneratedDuration="0:0:0.1" To="MouseOver"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimation Duration="0" To="#FF99C1E2" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="ContentElement"/>
+                                            <ColorAnimation Duration="0" To="#FF99C1E2" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="watermark_decorator"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="WatermarkStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Unwatermarked"/>
+                                    <VisualState x:Name="Watermarked">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ContentElement"/>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_Watermark"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Unfocused"/>
+                                    <VisualState x:Name="Focused">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisual"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="1" Opacity="1" Padding="{TemplateBinding Padding}">
+                                <Grid x:Name="WatermarkContent" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                    <Border x:Name="ContentElement" BorderBrush="#FFFFFFFF" BorderThickness="1"/>
+                                    <Border x:Name="watermark_decorator" BorderBrush="#FFFFFFFF" BorderThickness="1">
+                                        <ContentControl x:Name="PART_Watermark" Focusable="False" IsHitTestVisible="False" Opacity="0" Padding="2">
+                                            <ContentControl.Template>
+                                                <ControlTemplate>
+                                                    <TextBlock Text="{lex:Loc SelectDate}"/>
+                                                </ControlTemplate>
+                                            </ContentControl.Template>
+                                        </ContentControl>
+                                    </Border>
+                                    <ScrollViewer x:Name="PART_ContentHost" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    <Border x:Name="FocusVisual" BorderBrush="#FF45D6FA" CornerRadius="1" IsHitTestVisible="False" Opacity="0"/>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <StackPanel Margin="10,0">
+            <GroupBox Header="{lex:Loc NewAppointment}" Foreground="White" FontSize="18" Height="504">
+                <StackPanel>
+                    <Label Content="{lex:Loc Title}" Foreground="AntiqueWhite" />
+                    <TextBox x:Name="NewAppointmentTitle" MaxLength="255" />
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Grid.Row="0" Grid.Column="0">
+                            <Label Content="{lex:Loc Start}" Foreground="AntiqueWhite" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <DatePicker x:Name="StartDatepicker" Margin="0,0,59,0" Grid.Column="0" BorderBrush="Transparent" Grid.ColumnSpan="2" DisplayDateStart="{x:Static sys:DateTime.Today}" />
+                                <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="73,5,84,5" Grid.ColumnSpan="2" >
+                                    <Image DockPanel.Dock="Left" Source="/Assets/clock.png" Width="20" Height="18" Margin="0,0,5,10"></Image>
+                                    <ComboBox x:Name="StartHour" Width="71" HorizontalContentAlignment="Right" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Grid.Column="2" Margin="47,5,5,5" >
+                                    <ComboBox x:Name="StartMinute" Width="71" />
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="0" Grid.Column="1">
+                            <Label Content="{lex:Loc End}" Foreground="AntiqueWhite" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <DatePicker x:Name="EndDatepicker" Margin="0,0,59,0" Grid.Column="0" BorderBrush="Transparent" Grid.ColumnSpan="2" DisplayDateStart="{x:Static sys:DateTime.Today}" />
+                                <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="73,5,84,5" Grid.ColumnSpan="2" >
+                                    <Image DockPanel.Dock="Left" Source="/Assets/clock.png" Width="20" Height="18" Margin="0,0,5,10"></Image>
+                                    <ComboBox x:Name="EndHour" Width="71" HorizontalContentAlignment="Right" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Grid.Column="2" Margin="47,5,5,5" >
+                                    <ComboBox x:Name="EndMinute" Width="71" />
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="1" Grid.Column="0">
+                            <Label Content="{lex:Loc Location}" Foreground="AntiqueWhite" />
+                            <TextBox x:Name="NewAppointmentLocation" Margin="0,0,10,0" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="1" Grid.Column="1">
+                            <Label Content="{lex:Loc Contact}" Foreground="AntiqueWhite" />
+                            <TextBox x:Name="NewAppointmentContact" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="2" Grid.Column="0">
+                            <Label Content="{lex:Loc Type}" Foreground="AntiqueWhite" />
+                            <TextBox x:Name="NewAppointmentType" Margin="0,0,10,0" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="2" Grid.Column="1">
+                            <Label Content="URL" Foreground="AntiqueWhite" />
+                            <TextBox x:Name="NewAppointmentUrl" />
+                        </StackPanel>
+                    </Grid>
+
+                    <Label Content="{lex:Loc Customer}" Foreground="AntiqueWhite" />
+                    <ComboBox x:Name="NewAppointmentCustomer" />
+
+                    <Label Content="{lex:Loc Description}" Foreground="AntiqueWhite" />
+                    <TextBox x:Name="NewAppointmentDescription" Height="119" />
+                </StackPanel>
+            </GroupBox>
+
+            <Button x:Name="NewAppointmentButton" Content="{lex:Loc CreateAppointment}" Margin="0,20,0,0" Height="41" FontSize="22" FontWeight="Bold" Click="NewAppointmentButton_Click">
+                <Button.Effect>
+                    <DropShadowEffect Color="#FFCBCBCB"/>
+                </Button.Effect>
+
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
