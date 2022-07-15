@@ -8,11 +8,11 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SchedulingSoftware")]
-[assembly: AssemblyDescription("WGU C969 BOP3 Performance Assessment")]
+[assembly: AssemblyDescription("WGU C868 Capstone Application")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Jamey Mathis, Student #001101447")]
 [assembly: AssemblyProduct("SchedulingSoftware")]
-[assembly: AssemblyCopyright("Copyright © 2021 Jamey Mathis")]
+[assembly: AssemblyCopyright("Copyright © 2022 Jamey Mathis")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
