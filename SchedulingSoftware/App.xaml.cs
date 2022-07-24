@@ -27,11 +27,11 @@ namespace SchedulingSoftware
         public App()
         {
             // For development
-            //CultureInfo startupCulture = new CultureInfo("es");
-            //Thread.CurrentThread.CurrentCulture = startupCulture;
-            //Thread.CurrentThread.CurrentUICulture = startupCulture;
-
+            //CultureInfo startupCulture = new CultureInfo("de");
             CultureInfo startupCulture = Thread.CurrentThread.CurrentUICulture;
+
+            Thread.CurrentThread.CurrentCulture = startupCulture;
+            Thread.CurrentThread.CurrentUICulture = startupCulture;
             LocalizeDictionary.Instance.SetCurrentThreadCulture = true;
             LocalizeDictionary.Instance.Culture = startupCulture;
 
