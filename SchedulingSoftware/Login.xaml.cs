@@ -36,7 +36,7 @@ namespace SchedulingSoftware
                 TextBlock errorLabel = (TextBlock)this.FindName("errorLabel");
                 errorLabel.Text = errorMessage;
                 App.db.Close();
-                File.AppendAllLines("logins.txt", new[] { $"FAILED Login : {Username.Text} at {DateTime.Now.ToUniversalTime()} UTC" });
+                //File.AppendAllLines("logins.txt", new[] { $"FAILED Login : {Username.Text} at {DateTime.Now.ToUniversalTime()} UTC" });
                 return;
             }
 
@@ -46,7 +46,7 @@ namespace SchedulingSoftware
             App.db.Close();
             App.me = user;
 
-            File.AppendAllLines("logins.txt", new[] { $"Login : {user.name} (ID: {user.id}) logged in successfully at {DateTime.Now.ToUniversalTime()} UTC" });
+            //File.AppendAllLines("logins.txt", new[] { $"Login : {user.name} (ID: {user.id}) logged in successfully at {DateTime.Now.ToUniversalTime()} UTC" });
 
             MainWindow mainWindow = new MainWindow();
             App.Current.MainWindow = mainWindow;
